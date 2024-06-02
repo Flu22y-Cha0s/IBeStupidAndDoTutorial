@@ -1,7 +1,5 @@
 extends Area2D
 
-
-
 var multi_shot = false
 var fast_shot = false
 
@@ -11,18 +9,12 @@ var shot_delay = 0.6
 var flipped = false
 
 func _ready():
+	$Weapon_Pivot/Pistol/MuzzleFlash.visible = false
 	$Timer.wait_time = shot_delay
 
 func _physics_process(delta):
+
 	$Weapon_Pivot.look_at(get_global_mouse_position())
-	
-	## var Enemies_In_Range = get_overlapping_bodies()
-	## if Enemies_In_Range.size() > 0:
-	## 	var Target_Enemy = Enemies_In_Range.front()
-	## 	$Weapon_Pivot.look_at(Target_Enemy.global_position)
-		
-		
-	
 	
 	if $Weapon_Pivot.rotation_degrees > 360:
 		$Weapon_Pivot.rotation_degrees -= 360
@@ -32,14 +24,14 @@ func _physics_process(delta):
 		
 	if $Weapon_Pivot.rotation_degrees > 90 && $Weapon_Pivot.rotation_degrees < 270:
 		if flipped == false:
-			$Weapon_Pivot/Pistol/AnimationPlayerFlip.play("Flip")
+			$Weapon_Pivot/Pistol/AnimationPlayerGunTransformations.play("Flip")
 			
 		flipped = true
 		##$Weapon_Pivot/Pistol.flip_v = true
 		
 	else:
 		if flipped == true:
-			$Weapon_Pivot/Pistol/AnimationPlayerFlip.play_backwards("Flip")
+			$Weapon_Pivot/Pistol/AnimationPlayerGunTransformations.play_backwards("Flip")
 		flipped = false
 		##$Weapon_Pivot/Pistol.flip_v = false
 	
@@ -52,6 +44,8 @@ func shoot():
 	const BULLET = preload("res://bullet.tscn")
 	var new_bullet = BULLET.instantiate()
 	
+	
+		
 	do_recoil()
 	if fast_shot:
 		$Timer.wait_time = shot_delay/2
@@ -89,17 +83,18 @@ func shoot():
 		
 func do_recoil():
 	if fast_shot:
-		$AnimationPlayer.speed_scale = 2
+		$AnimationPlayerRecoil.speed_scale = 2
 		if flipped == false:
-			$AnimationPlayer.play("recoil")
+			$AnimationPlayerRecoil.play("recoil")
 		if flipped == true:
-			$AnimationPlayer.play("recoil_reverse")
+			$AnimationPlayerRecoil.play("recoil_reverse")
 	else:
-		$AnimationPlayer.speed_scale = 1
+		$AnimationPlayerRecoil.speed_scale = 1
 		if flipped == false:
-			$AnimationPlayer.play("recoil")
+			$AnimationPlayerRecoil.play("recoil")
 		if flipped == true:
-			$AnimationPlayer.play("recoil_reverse")
+			$AnimationPlayerRecoil.play("recoil_reverse")
 	
+
 
 

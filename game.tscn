@@ -44,20 +44,20 @@ _data = {
 point_count = 5
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_llxcc"]
-a = Vector2(-2000, -500)
-b = Vector2(2000, -500)
+a = Vector2(-3000, -2000)
+b = Vector2(3000, -2000)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_3rjjq"]
-a = Vector2(2000, -500)
-b = Vector2(2000, 2000)
+a = Vector2(3000, -2000)
+b = Vector2(3000, 2000)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_mw7p3"]
-a = Vector2(2000, 2000)
-b = Vector2(-2000, 2000)
+a = Vector2(3000, 2000)
+b = Vector2(-3000, 2000)
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_lotuf"]
-a = Vector2(-2000, -500)
-b = Vector2(-2000, 2000)
+a = Vector2(-3000, -2000)
+b = Vector2(-3000, 2000)
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -112,10 +112,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Player" parent="." instance=ExtResource("1_yi2ow")]
 unique_name_in_owner = true
-position = Vector2(888, 528)
 collision_mask = 5
 
 [node name="Path2D" type="Path2D" parent="Player"]
@@ -245,6 +246,138 @@ position = Vector2(1732, 1938)
 
 [node name="Pine_Tree39" parent="Trees" instance=ExtResource("2_gx4mn")]
 position = Vector2(1710, -350)
+
+[node name="Pine_Tree40" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2679, 239)
+
+[node name="Pine_Tree41" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2629, 637)
+
+[node name="Pine_Tree42" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2271, 322)
+
+[node name="Pine_Tree43" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2223, 914)
+
+[node name="Pine_Tree44" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2805, 1194)
+
+[node name="Pine_Tree45" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2558, 1604)
+
+[node name="Pine_Tree46" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2845, 1892)
+
+[node name="Pine_Tree47" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2734, -265)
+
+[node name="Pine_Tree48" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2893, -769)
+
+[node name="Pine_Tree49" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2505, -669)
+
+[node name="Pine_Tree50" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2311, -207)
+
+[node name="Pine_Tree51" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2036, -643)
+
+[node name="Pine_Tree52" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2772, -1800)
+
+[node name="Pine_Tree53" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2835, -1591)
+
+[node name="Pine_Tree54" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2606, -1732)
+
+[node name="Pine_Tree55" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2538, -1253)
+
+[node name="Pine_Tree56" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2815, -1162)
+
+[node name="Pine_Tree57" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2626, -1518)
+
+[node name="Pine_Tree58" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-1915, -1820)
+
+[node name="Pine_Tree59" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2001, -1460)
+
+[node name="Pine_Tree60" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2271, -1682)
+
+[node name="Pine_Tree61" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-2162, -1029)
+
+[node name="Pine_Tree62" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-1317, -705)
+
+[node name="Pine_Tree63" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-1467, -1325)
+
+[node name="Pine_Tree64" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-676, -1724)
+
+[node name="Pine_Tree65" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(-504, -1114)
+
+[node name="Pine_Tree66" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(643, -1107)
+
+[node name="Pine_Tree67" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(529, -1756)
+
+[node name="Pine_Tree68" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2264, -918)
+
+[node name="Pine_Tree69" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(1605, -1232)
+
+[node name="Pine_Tree70" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2154, -1809)
+
+[node name="Pine_Tree71" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(1733, -1816)
+
+[node name="Pine_Tree72" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2749, -1802)
+
+[node name="Pine_Tree73" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2649, -1328)
+
+[node name="Pine_Tree74" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2086, -1457)
+
+[node name="Pine_Tree75" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2881, -733)
+
+[node name="Pine_Tree76" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2339, -448)
+
+[node name="Pine_Tree77" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2703, 97)
+
+[node name="Pine_Tree78" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2336, 593)
+
+[node name="Pine_Tree79" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2746, 1009)
+
+[node name="Pine_Tree80" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2250, 1081)
+
+[node name="Pine_Tree81" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2706, 1900)
+
+[node name="Pine_Tree82" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2357, 1840)
+
+[node name="Pine_Tree83" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2538, 1483)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3

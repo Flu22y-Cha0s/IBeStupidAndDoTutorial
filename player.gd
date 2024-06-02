@@ -7,7 +7,7 @@ var max_health = 100.0
 
 const DAMAGE_RATE = 1.0
 
-var powerup_time = 5
+var powerup_time = 15
 
 func _ready():
 	$Timer.wait_time = powerup_time

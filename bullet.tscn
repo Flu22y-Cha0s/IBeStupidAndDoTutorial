@@ -34,6 +34,7 @@ collision_mask = 3
 script = ExtResource("1_gj733")
 
 [node name="Projectile" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
 position = Vector2(-11, -1)
 texture = ExtResource("2_w763e")
 
