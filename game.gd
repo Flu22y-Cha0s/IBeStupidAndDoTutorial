@@ -1,6 +1,6 @@
 extends Node2D
 
-const ENEMY_SPAWN = true
+const ENEMY_SPAWN = false
 
 var fast_shot_instance
 var multi_shot_instance

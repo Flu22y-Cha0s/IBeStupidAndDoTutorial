@@ -47,7 +47,7 @@ func _physics_process(delta):
 func multi_shot():
 	if $Gun.multi_shot:
 		$Timer.start()
-		$ProgressBar2/AnimationPlayerFade.play("MultiShotFadeIn")
+		$ProgressBar2/AnimationPlayerFadeMultiShot.play("MultiShotFadeIn")
 	else:
 		$Timer.start()
 		$Gun.multi_shot = true
@@ -57,14 +57,14 @@ func multi_shot():
 		##%Player.modulate = Color(0,0.1,0)
 	
 		## Icons
-		$ProgressBar2/AnimationPlayerFade.play("MultiShotFadeIn")
+		$ProgressBar2/AnimationPlayerFadeMultiShot.play("MultiShotFadeIn")
 		if $Gun.fast_shot:
 			$ProgressBar2/AnimationPlayerMove.play("MoveAside")
 
 func fast_shot():
 	if $Gun.fast_shot:
 		$Timer.start()
-		$ProgressBar2/AnimationPlayerFade.play("FastShotFadeIn")
+		$ProgressBar2/AnimationPlayerFadeFastShot.play("FastShotFadeIn")
 	else:
 		$Gun.fast_shot = true
 		$Timer.start()
@@ -74,7 +74,7 @@ func fast_shot():
 		##%Player.modulate = Color(0.1,0,0)
 		
 		## Icons
-		$ProgressBar2/AnimationPlayerFade.play("FastShotFadeIn")
+		$ProgressBar2/AnimationPlayerFadeFastShot.play("FastShotFadeIn")
 		if $Gun.multi_shot:
 			$ProgressBar2/AnimationPlayerMove.play("MoveAside")
 
@@ -82,8 +82,8 @@ func _on_timer_timeout():
 	
 	$ProgressBar2/AnimationPlayerBar.play("FadeOut")
 	##%Player.modulate = Color(0,0,0)
-	$ProgressBar2/AnimationPlayerFade.play("MultiShotFadeOut")
-	$ProgressBar2/AnimationPlayerFade.play("FastShotFadeOut")
+	$ProgressBar2/AnimationPlayerFadeMultiShot.play("MultiShotFadeOut")
+	$ProgressBar2/AnimationPlayerFadeFastShot.play("FastShotFadeOut")
 	
 	if $Gun.multi_shot && $Gun.fast_shot:
 		$ProgressBar2/AnimationPlayerMove.play("MoveInside")

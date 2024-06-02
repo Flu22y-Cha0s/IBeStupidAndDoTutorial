@@ -69,12 +69,27 @@ _data = {
 "FadeOut": SubResource("Animation_vbpng")
 }
 
-[sub_resource type="Animation" id="Animation_v0wse"]
-resource_name = "FastShotFadeIn"
+[sub_resource type="Animation" id="Animation_pk152"]
+resource_name = "MultiShotFadeIn"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("FastShotIcon:modulate")
+tracks/0/path = NodePath("MultiShotIcon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y0xa6"]
+resource_name = "MultiShotFadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MultiShotIcon:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -99,27 +114,12 @@ tracks/0/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_pk152"]
-resource_name = "MultiShotFadeIn"
+[sub_resource type="Animation" id="Animation_v0wse"]
+resource_name = "FastShotFadeIn"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("MultiShotIcon:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.9),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_y0xa6"]
-resource_name = "MultiShotFadeOut"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MultiShotIcon:modulate")
+tracks/0/path = NodePath("FastShotIcon:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -232,24 +232,28 @@ value = 100.0
 show_percentage = false
 
 [node name="AnimationPlayerBar" type="AnimationPlayer" parent="ProgressBar2"]
-root_node = NodePath("../AnimationPlayerFade")
+root_node = NodePath("../AnimationPlayerFadeMultiShot")
 libraries = {
 "": SubResource("AnimationLibrary_vgjun")
 }
 
-[node name="AnimationPlayerFade" type="AnimationPlayer" parent="ProgressBar2"]
+[node name="AnimationPlayerFadeMultiShot" type="AnimationPlayer" parent="ProgressBar2"]
+libraries = {
+"": SubResource("AnimationLibrary_o77cb")
+}
+
+[node name="AnimationPlayerFadeFastShot" type="AnimationPlayer" parent="ProgressBar2"]
 libraries = {
 "": SubResource("AnimationLibrary_o77cb")
 }
 
 [node name="AnimationPlayerMove" type="AnimationPlayer" parent="ProgressBar2"]
-root_node = NodePath("../AnimationPlayerFade")
+root_node = NodePath("../AnimationPlayerFadeMultiShot")
 libraries = {
 "": SubResource("AnimationLibrary_j8lgt")
 }
 
 [node name="FastShotIcon" type="Sprite2D" parent="ProgressBar2"]
-modulate = Color(1, 1, 1, 0)
 self_modulate = Color(0.733333, 0.886275, 0.898039, 1)
 position = Vector2(-16.0714, 13.756)
 scale = Vector2(0.892857, 0.917069)
