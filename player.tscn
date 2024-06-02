@@ -1,0 +1,304 @@
+[gd_scene load_steps=22 format=3 uid="uid://dvcqjchj0swg5"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_e4d3i"]
+[ext_resource type="PackedScene" uid="uid://pbmyh1qru7p" path="res://characters/happy_boo/happy_boo.tscn" id="1_qk73g"]
+[ext_resource type="PackedScene" uid="uid://bvi0vw1oqydql" path="res://gun.tscn" id="3_8415p"]
+[ext_resource type="Texture2D" uid="uid://dftkbqwsfd68r" path="res://pistol/projectile.png" id="5_ninrp"]
+[ext_resource type="Texture2D" uid="uid://cvmbm3sxj85fm" path="res://smoke_explosion/circle_32.png" id="5_xsgs3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_55ddx"]
+radius = 37.0135
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_12d8v"]
+radius = 47.5184
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mc0xs"]
+bg_color = Color(0.259294, 0.259294, 0.259294, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7yv3"]
+bg_color = Color(0, 0.575483, 0.144613, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vu8o2"]
+bg_color = Color(0.229095, 0.618676, 0.967525, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Animation" id="Animation_bbtky"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_vbpng"]
+resource_name = "FadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vgjun"]
+_data = {
+"FadeIn": SubResource("Animation_bbtky"),
+"FadeOut": SubResource("Animation_vbpng")
+}
+
+[sub_resource type="Animation" id="Animation_v0wse"]
+resource_name = "FastShotFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FastShotIcon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t8uys"]
+resource_name = "FastShotFadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("FastShotIcon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pk152"]
+resource_name = "MultiShotFadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MultiShotIcon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y0xa6"]
+resource_name = "MultiShotFadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MultiShotIcon:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o77cb"]
+_data = {
+"FastShotFadeIn": SubResource("Animation_v0wse"),
+"FastShotFadeOut": SubResource("Animation_t8uys"),
+"MultiShotFadeIn": SubResource("Animation_pk152"),
+"MultiShotFadeOut": SubResource("Animation_y0xa6")
+}
+
+[sub_resource type="Animation" id="Animation_tpsg0"]
+resource_name = "MoveAside"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MultiShotIcon:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-16.0714, 13.756), Vector2(-45.5357, 13.756)]
+}
+
+[sub_resource type="Animation" id="Animation_byx4k"]
+resource_name = "MoveInside"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../MultiShotIcon:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-45.5357, 13.756), Vector2(-16.0714, 13.756)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j8lgt"]
+_data = {
+"MoveAside": SubResource("Animation_tpsg0"),
+"MoveInside": SubResource("Animation_byx4k")
+}
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_e4d3i")
+
+[node name="HappyBoo" parent="." instance=ExtResource("1_qk73g")]
+unique_name_in_owner = true
+position = Vector2(0, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_55ddx")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+limit_left = -2000
+limit_top = -500
+limit_right = 2000
+limit_bottom = 2000
+limit_smoothed = true
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
+
+[node name="Gun" parent="." instance=ExtResource("3_8415p")]
+unique_name_in_owner = true
+position = Vector2(0, -34)
+
+[node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("CircleShape2D_12d8v")
+debug_color = Color(0.807712, 0.392296, 0.36192, 0.42)
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -77.0
+offset_top = -126.0
+offset_right = 64.0
+offset_bottom = -99.0
+scale = Vector2(1.12, 1.09043)
+theme_override_styles/background = SubResource("StyleBoxFlat_mc0xs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_e7yv3")
+value = 100.0
+show_percentage = false
+
+[node name="ProgressBar2" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+offset_left = -77.0
+offset_top = -163.0
+offset_right = 64.0
+offset_bottom = -136.0
+scale = Vector2(1.12, 1.09043)
+theme_override_styles/background = SubResource("StyleBoxFlat_mc0xs")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vu8o2")
+value = 100.0
+show_percentage = false
+
+[node name="AnimationPlayerBar" type="AnimationPlayer" parent="ProgressBar2"]
+root_node = NodePath("../AnimationPlayerFade")
+libraries = {
+"": SubResource("AnimationLibrary_vgjun")
+}
+
+[node name="AnimationPlayerFade" type="AnimationPlayer" parent="ProgressBar2"]
+libraries = {
+"": SubResource("AnimationLibrary_o77cb")
+}
+
+[node name="AnimationPlayerMove" type="AnimationPlayer" parent="ProgressBar2"]
+root_node = NodePath("../AnimationPlayerFade")
+libraries = {
+"": SubResource("AnimationLibrary_j8lgt")
+}
+
+[node name="FastShotIcon" type="Sprite2D" parent="ProgressBar2"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.733333, 0.886275, 0.898039, 1)
+position = Vector2(-16.0714, 13.756)
+scale = Vector2(0.892857, 0.917069)
+texture = ExtResource("5_xsgs3")
+
+[node name="Projectile4" type="Sprite2D" parent="ProgressBar2/FastShotIcon"]
+position = Vector2(-7, 3)
+rotation = -0.878318
+scale = Vector2(0.257079, 0.257079)
+texture = ExtResource("5_ninrp")
+
+[node name="Projectile5" type="Sprite2D" parent="ProgressBar2/FastShotIcon"]
+position = Vector2(3, -6)
+rotation = -0.878318
+scale = Vector2(0.257079, 0.257079)
+texture = ExtResource("5_ninrp")
+
+[node name="Projectile6" type="Sprite2D" parent="ProgressBar2/FastShotIcon"]
+position = Vector2(3, 3)
+rotation = -0.878318
+scale = Vector2(0.257079, 0.257079)
+texture = ExtResource("5_ninrp")
+
+[node name="MultiShotIcon" type="Sprite2D" parent="ProgressBar2"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(0.733333, 0.886275, 0.898039, 1)
+position = Vector2(-16.0714, 13.756)
+scale = Vector2(0.892857, 0.917069)
+texture = ExtResource("5_xsgs3")
+
+[node name="Projectile" type="Sprite2D" parent="ProgressBar2/MultiShotIcon"]
+position = Vector2(-1, -7.99998)
+rotation = -0.878318
+scale = Vector2(0.257079, 0.257079)
+texture = ExtResource("5_ninrp")
+
+[node name="Projectile2" type="Sprite2D" parent="ProgressBar2/MultiShotIcon"]
+position = Vector2(-1, 7.00002)
+rotation = 0.738916
+scale = Vector2(0.257079, 0.257079)
+texture = ExtResource("5_ninrp")
+
+[node name="Projectile3" type="Sprite2D" parent="ProgressBar2/MultiShotIcon"]
+position = Vector2(1.99999, 0)
+rotation = -0.00519529
+scale = Vector2(0.257079, 0.257079)
+texture = ExtResource("5_ninrp")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8c2105lf1cae"]
+
+[ext_resource type="Script" path="res://MultiShot.gd" id="1_alk20"]
+[ext_resource type="Texture2D" uid="uid://cvmbm3sxj85fm" path="res://smoke_explosion/circle_32.png" id="1_l3umw"]
+[ext_resource type="Texture2D" uid="uid://dftkbqwsfd68r" path="res://pistol/projectile.png" id="2_80ymr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2w504"]
+radius = 29.2746
+
+[node name="MultiShot" type="Area2D"]
+script = ExtResource("1_alk20")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2w504")
+
+[node name="Circle32" type="Sprite2D" parent="."]
+self_modulate = Color(0.732921, 0.886522, 0.897105, 1)
+position = Vector2(1.19209e-07, 5.96046e-08)
+scale = Vector2(1.75, 1.75)
+texture = ExtResource("1_l3umw")
+
+[node name="Projectile2" type="Sprite2D" parent="."]
+scale = Vector2(0.50226, 0.50226)
+texture = ExtResource("2_80ymr")
+
+[node name="Projectile3" type="Sprite2D" parent="."]
+position = Vector2(-4, -15)
+rotation = -0.579963
+scale = Vector2(0.50226, 0.50226)
+texture = ExtResource("2_80ymr")
+
+[node name="Projectile4" type="Sprite2D" parent="."]
+position = Vector2(-4, 15)
+rotation = 0.606913
+scale = Vector2(0.50226, 0.50226)
+texture = ExtResource("2_80ymr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

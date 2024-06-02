@@ -1,0 +1,137 @@
+[gd_scene load_steps=10 format=3 uid="uid://bvi0vw1oqydql"]
+
+[ext_resource type="Script" path="res://gun.gd" id="1_jlp0r"]
+[ext_resource type="Texture2D" uid="uid://cswb5do8rrj7q" path="res://pistol/pistol.png" id="1_jy6eo"]
+[ext_resource type="Texture2D" uid="uid://brgpjilf7s2ul" path="res://pistol/muzzle_flash/muzzle_flash.png" id="3_3qeb5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6ei2u"]
+radius = 420.525
+
+[sub_resource type="Animation" id="Animation_vfdgx"]
+resource_name = "recoil_fast"
+length = 0.15
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon_Pivot/Pistol:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.15),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.373591, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon_Pivot/Pistol/MuzzleFlash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ksdlk"]
+resource_name = "recoil_long"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Weapon_Pivot/Pistol:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.373591, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Weapon_Pivot/Pistol/MuzzleFlash:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7n7rt"]
+_data = {
+"recoil_fast": SubResource("Animation_vfdgx"),
+"recoil_long": SubResource("Animation_ksdlk")
+}
+
+[sub_resource type="Animation" id="Animation_q3o3s"]
+resource_name = "Flip"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pistol:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, -1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4vg7o"]
+_data = {
+"Flip": SubResource("Animation_q3o3s")
+}
+
+[node name="Gun" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_jlp0r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6ei2u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7n7rt")
+}
+
+[node name="Weapon_Pivot" type="Marker2D" parent="."]
+rotation = -0.00416478
+
+[node name="Pistol" type="Sprite2D" parent="Weapon_Pivot"]
+position = Vector2(77, 0)
+scale = Vector2(1, -1)
+texture = ExtResource("1_jy6eo")
+
+[node name="AnimationPlayerFlip" type="AnimationPlayer" parent="Weapon_Pivot/Pistol"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4vg7o")
+}
+
+[node name="Shooting_Point" type="Marker2D" parent="Weapon_Pivot/Pistol"]
+unique_name_in_owner = true
+position = Vector2(21, -11)
+rotation = -0.000884393
+
+[node name="MuzzleFlash" type="Sprite2D" parent="Weapon_Pivot/Pistol"]
+visible = false
+position = Vector2(36, -11)
+rotation = -0.00252415
+texture = ExtResource("3_3qeb5")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
