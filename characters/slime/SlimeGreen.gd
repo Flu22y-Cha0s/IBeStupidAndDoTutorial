@@ -8,6 +8,3 @@ func play_walk():
 func play_hurt():
 	%AnimationPlayer.play("hurt")
 	%AnimationPlayer.queue("walk")
-
-func color(rgb_value):
-	$Anchor.modulate = rgb_value

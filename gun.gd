@@ -1,5 +1,7 @@
 extends Area2D
 
+@onready var crosshair = get_node("/root/Game/MouseCrosshair")
+
 var multi_shot = false
 var fast_shot = false
 
@@ -82,14 +84,24 @@ func shoot():
 		
 		
 func do_recoil():
+	crosshair.play_anim()
+	
 	if fast_shot:
 		$AnimationPlayerRecoil.speed_scale = 2
+		
+		
+		
+		
 		if flipped == false:
 			$AnimationPlayerRecoil.play("recoil")
 		if flipped == true:
 			$AnimationPlayerRecoil.play("recoil_reverse")
 	else:
 		$AnimationPlayerRecoil.speed_scale = 1
+		
+		
+		
+		
 		if flipped == false:
 			$AnimationPlayerRecoil.play("recoil")
 		if flipped == true:

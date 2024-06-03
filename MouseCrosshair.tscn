@@ -1,0 +1,109 @@
+[gd_scene load_steps=5 format=3 uid="uid://bauktibypry1y"]
+
+[ext_resource type="Texture2D" uid="uid://cksiu5gst6fmp" path="res://characters/happy_boo/square_body.png" id="1_hft1l"]
+[ext_resource type="Script" path="res://MouseCrosshair.gd" id="1_mbw24"]
+
+[sub_resource type="Animation" id="Animation_sjb0y"]
+resource_name = "Shoot"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Marker2D:rotation")
+tracks/0/interp = 4
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D/SquareBody:offset")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Marker2D/SquareBody2:offset")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(50, 0), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Marker2D/SquareBody3:offset")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-50, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Marker2D/SquareBody4:offset")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(50, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ufaim"]
+_data = {
+"Shoot": SubResource("Animation_sjb0y")
+}
+
+[node name="MouseCrosshair" type="Node2D"]
+script = ExtResource("1_mbw24")
+
+[node name="AnimationPlayerCrosshair" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_ufaim")
+}
+
+[node name="Marker2D" type="Marker2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+z_index = 3
+y_sort_enabled = true
+
+[node name="SquareBody" type="Sprite2D" parent="Marker2D"]
+position = Vector2(-9, 0)
+scale = Vector2(0.144508, 0.0793888)
+texture = ExtResource("1_hft1l")
+
+[node name="SquareBody2" type="Sprite2D" parent="Marker2D"]
+position = Vector2(9, 0)
+scale = Vector2(0.144508, 0.0793888)
+texture = ExtResource("1_hft1l")
+
+[node name="SquareBody3" type="Sprite2D" parent="Marker2D"]
+position = Vector2(4.37114e-07, -9)
+rotation = 1.5708
+scale = Vector2(0.144508, 0.0793888)
+texture = ExtResource("1_hft1l")
+
+[node name="SquareBody4" type="Sprite2D" parent="Marker2D"]
+position = Vector2(-4.17233e-07, 9)
+rotation = 1.5708
+scale = Vector2(0.144508, 0.0793888)
+texture = ExtResource("1_hft1l")

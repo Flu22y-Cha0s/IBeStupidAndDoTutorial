@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://pxw4sjjd3qay"]
+[gd_scene load_steps=13 format=3 uid="uid://pxw4sjjd3qay"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_v8vgx"]
 [ext_resource type="PackedScene" uid="uid://dvcqjchj0swg5" path="res://player.tscn" id="1_yi2ow"]
 [ext_resource type="PackedScene" uid="uid://dt7lhelnmkaw5" path="res://pine_tree.tscn" id="2_gx4mn"]
 [ext_resource type="Script" path="res://GameOver.gd" id="2_kk10m"]
+[ext_resource type="PackedScene" uid="uid://bauktibypry1y" path="res://MouseCrosshair.tscn" id="5_flrsn"]
 
 [sub_resource type="Animation" id="Animation_24p2a"]
 resource_name = "fade"
@@ -63,6 +64,9 @@ b = Vector2(-3000, 2000)
 y_sort_enabled = true
 script = ExtResource("1_v8vgx")
 
+[node name="MouseCrosshair" parent="." instance=ExtResource("5_flrsn")]
+position = Vector2(-101, 136)
+
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 process_mode = 2
@@ -115,6 +119,16 @@ grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
+[node name="Label" type="Label" parent="CanvasLayer"]
+top_level = true
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 258.0
+offset_bottom = 112.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 72
+text = "0000"
+
 [node name="Player" parent="." instance=ExtResource("1_yi2ow")]
 unique_name_in_owner = true
 collision_mask = 5
@@ -131,256 +145,267 @@ rotation = 0.0184846
 [node name="Trees" type="Node2D" parent="."]
 
 [node name="Pine_Tree" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(590, 169)
+position = Vector2(-2889, -1828)
 
 [node name="Pine_Tree2" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(338, 911)
+position = Vector2(-2741, -1392)
 
 [node name="Pine_Tree3" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1222, 302)
+position = Vector2(-2635, -1473)
 
 [node name="Pine_Tree4" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1333, 419)
+position = Vector2(-2613, -1278)
 
 [node name="Pine_Tree5" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1372, 276)
+position = Vector2(-2752, -860)
 
 [node name="Pine_Tree6" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1330, 899)
+position = Vector2(-2343, -719)
 
 [node name="Pine_Tree7" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(584, 566)
+position = Vector2(-1989, -1017)
 
 [node name="Pine_Tree8" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1504, 425)
+position = Vector2(-2038, -861)
 
 [node name="Pine_Tree9" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(215, 493)
+position = Vector2(-2002, -1711)
 
 [node name="Pine_Tree10" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-510, 514)
+position = Vector2(-2278, -1307)
 
 [node name="Pine_Tree11" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-734, 429)
+position = Vector2(-2725, -510)
 
 [node name="Pine_Tree12" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-421, 133)
+position = Vector2(-2426, -211)
 
 [node name="Pine_Tree13" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1010, -92)
+position = Vector2(-2274, -84)
 
 [node name="Pine_Tree14" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1277, 959)
+position = Vector2(-1746, -485)
 
 [node name="Pine_Tree15" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-790, 1256)
+position = Vector2(-1445, -126)
 
 [node name="Pine_Tree16" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1311, 1743)
+position = Vector2(-2905, -110)
 
 [node name="Pine_Tree17" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-296, 1652)
+position = Vector2(-1553, -1540)
 
 [node name="Pine_Tree18" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(162, 1891)
+position = Vector2(-922, -975)
 
 [node name="Pine_Tree19" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(108, 1342)
+position = Vector2(-415, -1790)
 
 [node name="Pine_Tree20" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1481, 1768)
+position = Vector2(-1167, -1693)
 
 [node name="Pine_Tree21" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(683, 1821)
+position = Vector2(-617, -454)
 
 [node name="Pine_Tree22" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(811, 1436)
+position = Vector2(-260, -144)
 
 [node name="Pine_Tree23" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1823, 1470)
+position = Vector2(-467, -335)
 
 [node name="Pine_Tree24" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1895, 1084)
+position = Vector2(-794, -124)
 
 [node name="Pine_Tree25" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1170, 1288)
+position = Vector2(-110, -1296)
 
 [node name="Pine_Tree26" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1872, 564)
+position = Vector2(182, -1735)
 
 [node name="Pine_Tree27" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1868, -90)
+position = Vector2(1219, -1238)
 
 [node name="Pine_Tree28" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1302, -229)
+position = Vector2(2106, -891)
 
 [node name="Pine_Tree29" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-178, -331)
+position = Vector2(498, -1191)
 
 [node name="Pine_Tree30" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(679, -165)
+position = Vector2(301, -665)
 
 [node name="Pine_Tree31" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-246, 1141)
+position = Vector2(1649, -372)
 
 [node name="Pine_Tree32" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1205, 310)
+position = Vector2(453, -263)
 
 [node name="Pine_Tree33" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1691, -71)
+position = Vector2(909, -620)
 
 [node name="Pine_Tree34" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1857, 374)
+position = Vector2(1314, -1152)
 
 [node name="Pine_Tree35" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1657, 801)
+position = Vector2(981, -1752)
 
 [node name="Pine_Tree36" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1907, 1414)
+position = Vector2(2484, -1764)
 
 [node name="Pine_Tree37" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1925, 1938)
+position = Vector2(1782, -1583)
 
 [node name="Pine_Tree38" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1732, 1938)
+position = Vector2(2850, -1514)
 
 [node name="Pine_Tree39" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1710, -350)
+position = Vector2(2246, -810)
 
 [node name="Pine_Tree40" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2679, 239)
+position = Vector2(2201, -974)
 
 [node name="Pine_Tree41" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2629, 637)
+position = Vector2(2884, -489)
 
 [node name="Pine_Tree42" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2271, 322)
+position = Vector2(2350, -278)
 
 [node name="Pine_Tree43" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2223, 914)
+position = Vector2(1770, -84)
 
 [node name="Pine_Tree44" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2805, 1194)
+position = Vector2(1087, -104)
 
 [node name="Pine_Tree45" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2558, 1604)
+position = Vector2(-2702, 1822)
 
 [node name="Pine_Tree46" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2845, 1892)
+position = Vector2(-2393, 1898)
 
 [node name="Pine_Tree47" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2734, -265)
+position = Vector2(-2854, 1341)
 
 [node name="Pine_Tree48" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2893, -769)
+position = Vector2(-2226, 1375)
 
 [node name="Pine_Tree49" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2505, -669)
+position = Vector2(-2712, 932)
 
 [node name="Pine_Tree50" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2311, -207)
+position = Vector2(-2260, 932)
 
 [node name="Pine_Tree51" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2036, -643)
+position = Vector2(-2731, 523)
 
 [node name="Pine_Tree52" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2772, -1800)
+position = Vector2(-2659, 186)
 
 [node name="Pine_Tree53" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2835, -1591)
+position = Vector2(-2322, 457)
 
 [node name="Pine_Tree54" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2606, -1732)
+position = Vector2(-1732, 552)
 
 [node name="Pine_Tree55" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2538, -1253)
+position = Vector2(-1898, 143)
 
 [node name="Pine_Tree56" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2815, -1162)
+position = Vector2(-1318, 885)
 
 [node name="Pine_Tree57" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2626, -1518)
+position = Vector2(-1765, 1227)
 
 [node name="Pine_Tree58" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1915, -1820)
+position = Vector2(-1903, 1784)
 
 [node name="Pine_Tree59" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2001, -1460)
+position = Vector2(-1137, 1755)
 
 [node name="Pine_Tree60" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2271, -1682)
+position = Vector2(-1213, 1303)
 
 [node name="Pine_Tree61" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-2162, -1029)
+position = Vector2(-476, 771)
 
 [node name="Pine_Tree62" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1317, -705)
+position = Vector2(-409, 281)
 
 [node name="Pine_Tree63" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-1467, -1325)
+position = Vector2(-842, 362)
 
 [node name="Pine_Tree64" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-676, -1724)
+position = Vector2(-1323, 438)
 
 [node name="Pine_Tree65" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(-504, -1114)
+position = Vector2(185, 1603)
 
 [node name="Pine_Tree66" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(643, -1107)
+position = Vector2(-657, 1570)
 
 [node name="Pine_Tree67" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(529, -1756)
+position = Vector2(-29, 1047)
 
 [node name="Pine_Tree68" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2264, -918)
+position = Vector2(-405, 1380)
 
 [node name="Pine_Tree69" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1605, -1232)
+position = Vector2(-328, 1879)
 
 [node name="Pine_Tree70" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2154, -1809)
+position = Vector2(594, 309)
 
 [node name="Pine_Tree71" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(1733, -1816)
+position = Vector2(461, 423)
 
 [node name="Pine_Tree72" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2749, -1802)
+position = Vector2(590, 499)
 
 [node name="Pine_Tree73" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2649, -1328)
+position = Vector2(1184, 1056)
 
 [node name="Pine_Tree74" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2086, -1457)
+position = Vector2(561, 1151)
 
 [node name="Pine_Tree75" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2881, -733)
+position = Vector2(847, 742)
 
 [node name="Pine_Tree76" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2339, -448)
+position = Vector2(1056, 376)
 
 [node name="Pine_Tree77" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2703, 97)
+position = Vector2(1807, 471)
 
 [node name="Pine_Tree78" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2336, 593)
+position = Vector2(1784, 1137)
 
 [node name="Pine_Tree79" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2746, 1009)
+position = Vector2(918, 1441)
 
 [node name="Pine_Tree80" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2250, 1081)
+position = Vector2(794, 1746)
 
 [node name="Pine_Tree81" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2706, 1900)
+position = Vector2(1765, 1774)
 
 [node name="Pine_Tree82" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2357, 1840)
+position = Vector2(1536, 1679)
 
 [node name="Pine_Tree83" parent="Trees" instance=ExtResource("2_gx4mn")]
-position = Vector2(2538, 1483)
+position = Vector2(1679, 1598)
+
+[node name="Pine_Tree84" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2435, 1013)
+
+[node name="Pine_Tree85" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2340, 580)
+
+[node name="Pine_Tree86" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2683, 276)
+
+[node name="Pine_Tree87" parent="Trees" instance=ExtResource("2_gx4mn")]
+position = Vector2(2554, 1760)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.3
 autostart = true
 
 [node name="WordBorder" type="Node2D" parent="."]

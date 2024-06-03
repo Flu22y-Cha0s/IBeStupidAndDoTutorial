@@ -4,5 +4,6 @@ extends Area2D
 
 func _on_body_entered(body):
 	if body == player:
+		queue_free()
 		player.health = 100.00
 

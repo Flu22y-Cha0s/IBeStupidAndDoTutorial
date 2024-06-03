@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
-var health = 1
+var health = 3
 
 @onready var player = get_node("/root/Game/Player")
+@onready var main_scene = get_node("/root/Game")
 
 func _ready():
 	$Slime.play_walk()
+	$Slime.color(Color("blue"))
+	pass
 
 func _physics_process(delta):
 	var direction = global_position.direction_to(player.global_position)
@@ -25,4 +28,4 @@ func take_damage():
 		get_parent().add_child(new_smoke)
 		queue_free()
 		
-		
+		main_scene.score_up(5)

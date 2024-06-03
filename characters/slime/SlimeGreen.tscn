@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dexi6xw3whpp2"]
+[gd_scene load_steps=12 format=3 uid="uid://ogik4s70pgwl"]
 
 [ext_resource type="Texture2D" uid="uid://dvgfmy6vtvjji" path="res://characters/slime/slime_body.png" id="1_3j35h"]
-[ext_resource type="Script" path="res://characters/slime/Slime.gd" id="1_31628"]
 [ext_resource type="Texture2D" uid="uid://b7rhtttevhxtj" path="res://characters/ground_shadow.png" id="1_cq7ej"]
+[ext_resource type="Script" path="res://characters/slime/SlimeGreen.gd" id="1_irhm3"]
 [ext_resource type="Texture2D" uid="uid://c078jrp2yvc4s" path="res://characters/slime/slime_face.png" id="2_ygydt"]
 [ext_resource type="Texture2D" uid="uid://btbxea1f3vwot" path="res://characters/slime/slime_body_hurt.png" id="4_0qu0c"]
 [ext_resource type="Texture2D" uid="uid://cai2ijnbypqtr" path="res://characters/slime/slime_hurt_eyes.png" id="4_hi70h"]
@@ -212,7 +212,7 @@ _data = {
 }
 
 [node name="Slime" type="Node2D"]
-script = ExtResource("1_31628")
+script = ExtResource("1_irhm3")
 
 [node name="GroundShadow" type="Sprite2D" parent="."]
 modulate = Color(0.898039, 0.878431, 0.831373, 1)
@@ -224,7 +224,6 @@ texture = ExtResource("1_cq7ej")
 [node name="Anchor" type="Marker2D" parent="."]
 
 [node name="SlimeBody" type="Sprite2D" parent="Anchor"]
-unique_name_in_owner = true
 texture = ExtResource("1_3j35h")
 offset = Vector2(0, -36)
 
@@ -237,7 +236,6 @@ offset = Vector2(0, -36)
 position = Vector2(0, -25)
 
 [node name="SlimeFace" type="Sprite2D" parent="Anchor/Face"]
-unique_name_in_owner = true
 texture = ExtResource("2_ygydt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
