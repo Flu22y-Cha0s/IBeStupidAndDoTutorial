@@ -1,10 +1,27 @@
-[gd_scene load_steps=13 format=3 uid="uid://pxw4sjjd3qay"]
+[gd_scene load_steps=15 format=3 uid="uid://pxw4sjjd3qay"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_v8vgx"]
 [ext_resource type="PackedScene" uid="uid://dvcqjchj0swg5" path="res://player.tscn" id="1_yi2ow"]
 [ext_resource type="PackedScene" uid="uid://dt7lhelnmkaw5" path="res://pine_tree.tscn" id="2_gx4mn"]
 [ext_resource type="Script" path="res://GameOver.gd" id="2_kk10m"]
+[ext_resource type="PackedScene" uid="uid://2yt8d83lcsrh" path="res://WaveBar.tscn" id="4_ivpdx"]
 [ext_resource type="PackedScene" uid="uid://bauktibypry1y" path="res://MouseCrosshair.tscn" id="5_flrsn"]
+
+[sub_resource type="FontFile" id="FontFile_227sd"]
+cache/0/72/0/ascent = 0.0
+cache/0/72/0/descent = 0.0
+cache/0/72/0/underline_position = 0.0
+cache/0/72/0/underline_thickness = 0.0
+cache/0/72/0/scale = 1.0
+cache/0/72/0/kerning_overrides/72/0 = Vector2(0, 0)
+cache/0/72/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/72/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
 
 [sub_resource type="Animation" id="Animation_24p2a"]
 resource_name = "fade"
@@ -67,6 +84,31 @@ script = ExtResource("1_v8vgx")
 [node name="MouseCrosshair" parent="." instance=ExtResource("5_flrsn")]
 position = Vector2(-101, 136)
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+top_level = true
+offset_left = 4.0
+offset_top = 16.0
+offset_right = 258.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = SubResource("FontFile_227sd")
+theme_override_font_sizes/font_size = 72
+text = "Wave: 1"
+
+[node name="ProgressBar3" parent="CanvasLayer2" instance=ExtResource("4_ivpdx")]
+z_index = 1
+z_as_relative = false
+anchors_preset = 0
+anchor_right = 0.0
+offset_top = 10.0
+offset_right = 1920.0
+offset_bottom = 37.0
+grow_horizontal = 1
+max_value = 10.0
+
 [node name="GameOver" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 process_mode = 2
@@ -118,16 +160,6 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-top_level = true
-offset_left = 4.0
-offset_top = 3.0
-offset_right = 258.0
-offset_bottom = 112.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 72
-text = "0000"
 
 [node name="Player" parent="." instance=ExtResource("1_yi2ow")]
 unique_name_in_owner = true

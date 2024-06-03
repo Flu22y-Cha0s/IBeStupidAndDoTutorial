@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://2yt8d83lcsrh"]
+
+[ext_resource type="Script" path="res://WaveBar.gd" id="1_ov0f2"]
+
+[node name="ProgressBar" type="ProgressBar"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 15.0
+offset_bottom = 53.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+script = ExtResource("1_ov0f2")

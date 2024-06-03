@@ -9,20 +9,22 @@ var fast_shot_instance
 var multi_shot_instance
 var med_orb_instance
 
-var wave1 = 10
-var wave2 = 50
-var wave3 = 200
+const WAVE1 = 10
+const WAVE2 = 50
+const WAVE3 = 200
 
-
+var wave_max = 10
+var prev_wave_max = 0
 
 const FAST_SHOT_PRELOADED = preload("res://FastShot.tscn")
 const MULTI_SHOT_PRELOADED = preload("res://MultiShot.tscn")
 const MED_ORB_PRELOADED = preload("res://MedOrb.tscn")
 
-func _process(delta):
-	$CanvasLayer/Label.text = str(score)
-
-
+func  _process(delta):
+	## $CanvasLayer2/ProgressBar3.update_bar(score - prev_wave_max, wave_max)
+	pass
+	
+	
 func _ready():
 	
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -47,14 +49,26 @@ func spawn_mob():
 	if ENEMY_SPAWN:
 		var new_enemy
 		var i = 0
-		if score <= wave1:
-			i = 1
-		if score > wave1 && score <= wave2:
+		if score < WAVE1:
+			wave_max = WAVE1
+			prev_wave_max = 0
+			i = snapped(randf_range(1,1), 1)
+			$CanvasLayer2/Label.text = "Wave: 1"
+		if score >= WAVE1 && score < WAVE2:
+			wave_max = WAVE2
+			prev_wave_max = WAVE1
 			i = snapped(randf_range(1,2), 1)
-		if score > wave2 && score <= wave3:
+			$CanvasLayer2/Label.text = "Wave: 2"
+		if score >= WAVE2 && score < WAVE3:
+			wave_max = WAVE3
+			prev_wave_max = WAVE2
 			i = snapped(randf_range(1,3), 1)
-		if score > wave3:
+			$CanvasLayer2/Label.text = "Wave: 3"
+		if score >= WAVE3:
+			prev_wave_max = WAVE3
+			wave_max = 9999
 			i = snapped(randf_range(2,3), 1)
+			$CanvasLayer2/Label.text = "Wave: ∞"
 		
 		
 		if i == 1:
@@ -108,3 +122,27 @@ func spawn_powerup(name):
 
 func score_up(amount):
 	score += amount
+	if score == WAVE1 || score == WAVE2 || score == WAVE3:
+		if score < WAVE1:
+			wave_max = WAVE1
+			prev_wave_max = 0
+			
+		if score >= WAVE1 && score < WAVE2:
+			wave_max = WAVE2
+			prev_wave_max = WAVE1
+			
+		if score >= WAVE2 && score < WAVE3:
+			wave_max = WAVE3
+			prev_wave_max = WAVE2
+			
+		if score >= WAVE3:
+			prev_wave_max = WAVE3
+			wave_max = 9999
+			
+	
+	$CanvasLayer2/ProgressBar3.update_bar(score - prev_wave_max, wave_max)
+	
+	
+	
+	
+	
